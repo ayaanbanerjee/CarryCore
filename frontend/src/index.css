@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+/* ============================================================
+   PACKVERSE DESIGN SYSTEM
+   A warm, crafted "travel atlas" palette for a bag & travel-gear
+   store: brass/ochre accents on ink + cream, evoking leather,
+   maps and journeys. Serif display type carries the brand voice;
+   Open Sans carries the body; Geist is reserved for dense,
+   data-heavy UI (admin dashboard, tables, numbers).
+   ============================================================ */
+@theme {
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-body: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-data: "Geist", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand */
+  --color-brass-50:  #FBF3E7;
+  --color-brass-100: #F3E1C1;
+  --color-brass-200: #E7C58C;
+  --color-brass-300: #D8A85D;
+  --color-brass-400: #C6913F;
+  --color-brass-500: #B4762C;
+  --color-brass-600: #97611F;
+  --color-brass-700: #7A4D19;
+  --color-brass-800: #5E3B14;
+  --color-brass-900: #432B0F;
+
+  --color-forest-50:  #EEF2ED;
+  --color-forest-100: #D3DED2;
+  --color-forest-200: #A9BFA6;
+  --color-forest-300: #7C9C79;
+  --color-forest-400: #567A55;
+  --color-forest-500: #3E5B3E;
+  --color-forest-600: #354B39;
+  --color-forest-700: #2A3B2E;
+  --color-forest-800: #202C23;
+  --color-forest-900: #161E18;
+
+  --color-rust-50:  #FBEBE6;
+  --color-rust-100: #F2CBBE;
+  --color-rust-400: #C05A3D;
+  --color-rust-500: #A8402B;
+  --color-rust-600: #8A3323;
+
+  /* Neutrals (warm, paper-toned) */
+  --color-cream:        #FAF5EC;
+  --color-paper:        #FFFFFF;
+  --color-sand:         #F1E9D9;
+  --color-sand-dark:    #E4D9C4;
+  --color-border:       #E4D9C4;
+  --color-border-strong:#D2C3A3;
+  --color-ink:          #2A241C;
+  --color-body:         #4A4438;
+  --color-muted:        #8A8171;
+
+  /* Semantic */
+  --color-success:      #3F7A52;
+  --color-success-bg:   #EAF4EC;
+  --color-warning:      #B8860B;
+  --color-warning-bg:   #FBF3DF;
+  --color-error:        #B3432B;
+  --color-error-bg:     #FBEAE5;
+  --color-info:         #3B6E8F;
+  --color-info-bg:      #E9F1F5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-body);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Focus visibility across the app */
+a, button, input, select, textarea {
+  outline-color: var(--color-brass-500);
+}
+:focus-visible {
+  outline: 2px solid var(--color-brass-500);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-brass-200);
+  color: var(--color-ink);
+}
+
+/* Signature detail: a hand-stitched divider, evoking leatherwork.
+   Used sparingly between major storefront sections. */
+.stitch-divider {
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-brass-400) 0 10px,
+    transparent 10px 18px
+  );
+  opacity: 0.6;
+}
+
+.scrollbar-thin::-webkit-scrollbar { height: 6px; width: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 999px; }
+
+/* Center-aligned section heading variant */
+.items-center.text-center > * { text-align: center; margin-left: auto; margin-right: auto; }
