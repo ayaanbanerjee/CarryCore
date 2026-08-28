@@ -67,7 +67,7 @@ export default function Home() {
                 className="!border-white/30 !text-white hover:!bg-white/10 hover:!border-white/60"
                 onClick={() => navigate("/signup")}
               >
-                Join Packverse
+                Join CarryCore
               </Button>
             </div>
 
@@ -167,7 +167,7 @@ export default function Home() {
           {/* image side */}
           <div className="relative">
             <div className="rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl">
-              <img src={leatherBagImg} alt="Packverse leather bag" className="w-full h-full object-cover" />
+              <img src={leatherBagImg} alt="CarryCore leather bag" className="w-full h-full object-cover" />
             </div>
             {/* floating badge */}
             <div className="absolute -bottom-5 -right-5 bg-brass-500 text-white rounded-2xl px-6 py-4 shadow-xl hidden md:block">
@@ -184,7 +184,7 @@ export default function Home() {
               <span className="text-brass-500">bold traveller.</span>
             </h2>
             <p className="text-body mt-5 text-base leading-relaxed">
-              Every Packverse bag starts with a simple question: <em>what does a traveller actually need?</em> We obsess over materials, test every stitch, and design for real life — not just the photoshoot.
+              Every CarryCore bag starts with a simple question: <em>what does a traveller actually need?</em> We obsess over materials, test every stitch, and design for real life — not just the photoshoot.
             </p>
             <p className="text-body mt-3 text-base leading-relaxed">
               From weekend escapes to daily commutes, our bags are built to move the way you move.
@@ -245,7 +245,7 @@ export default function Home() {
               Your next journey<br />starts here.
             </h2>
             <p className="text-forest-300 text-base md:text-lg max-w-xl mx-auto mb-8">
-              Shop the full Packverse collection — free shipping on orders above ₹999.
+              Shop the full CarryCore collection — free shipping on orders above ₹999.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Button
@@ -292,7 +292,7 @@ const TESTIMONIALS = [
   {
     name: 'Arjun Mehta',
     role: 'Frequent Traveller, Mumbai',
-    quote: 'I\'ve used my Packverse backpack on 3 international trips. The quality is unreal — zippers still smooth, straps still perfect.',
+    quote: 'I\'ve used my CarryCore backpack on 3 international trips. The quality is unreal — zippers still smooth, straps still perfect.',
     rating: 5,
   },
   {

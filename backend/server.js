@@ -15,7 +15,10 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL || '*',
+  credentials: true
+}));
 app.use('/api/auth' , authRoute);
 app.use('/api/product', productRoutes);
 app.use('/api/cart', Cart);
@@ -28,4 +31,7 @@ app.get('/', function(req, res){
 
 connectDB();
 
-app.listen(5001);
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

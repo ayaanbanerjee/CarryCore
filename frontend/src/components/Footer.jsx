@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="font-display text-xl font-bold text-white">
-              Packverse
+              CarryCore
             </Link>
             <p className="text-sm text-forest-300 mt-3 leading-relaxed">
               Bags built to last — for every journey, from daily commutes to weekend escapes.
@@ -40,7 +40,7 @@ export default function Footer() {
               Support
             </h3>
             <ul className="flex flex-col gap-2 text-sm text-forest-300">
-              <li>support@packverse.example</li>
+              <li>support@carrycore.example</li>
               <li>Mon–Sat, 9am–6pm IST</li>
             </ul>
           </div>
@@ -49,7 +49,7 @@ export default function Footer() {
         <div className="stitch-divider my-8 opacity-20" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-forest-400">
-          <p>© {new Date().getFullYear()} Packverse. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CarryCore. All rights reserved.</p>
           <p>Made for travellers, students &amp; professionals across India.</p>
         </div>
       </div>

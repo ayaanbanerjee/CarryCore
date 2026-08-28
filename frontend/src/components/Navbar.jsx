@@ -94,7 +94,7 @@ export default function Navbar() {
                             <span className={`font-display text-xl font-bold tracking-tight transition-colors ${
                                 isTransparent ? 'text-white' : 'text-ink'
                             }`}>
-                                Packverse
+                                CarryCore
                             </span>
                         </Link>
 
@@ -235,7 +235,7 @@ export default function Navbar() {
                             <div className="w-7 h-7 rounded-lg bg-brass-500 flex items-center justify-center">
                                 <span className="text-white font-bold text-xs font-display">P</span>
                             </div>
-                            <span className="font-display text-lg font-bold text-ink">Packverse</span>
+                            <span className="font-display text-lg font-bold text-ink">CarryCore</span>
                         </div>
                         <button onClick={() => setMenuOpen(false)} className="p-1.5 rounded-lg hover:bg-sand text-muted cursor-pointer">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
