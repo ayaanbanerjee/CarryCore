@@ -1,17 +1,21 @@
 import api from '../api/axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router';
-import { ProductCard, Button, SectionHeading, EmptyState } from '../components/ui';
+import { ProductCard, Button, SectionHeading, EmptyState, Spinner } from '../components/ui';
 import bannerImg from '../images/banner.jpeg';
 import leatherBagImg from '../assets/HeroLeatherBag.jpg';
 
 export default function Home() {
   const [products, setProducts] = useState([])
   const [showAll, setShowAll] = useState(false);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.get('/product').then(res => setProducts(res.data));
+    setLoading(true);
+    api.get('/product')
+      .then(res => setProducts(res.data))
+      .finally(() => setLoading(false));
   }, [])
 
   const addtocart = async (productId) => {
@@ -124,7 +128,12 @@ export default function Home() {
           </Button>
         </div>
 
-        {products.length === 0 ? (
+        {loading ? (
+          <div className="flex flex-col items-center py-16 gap-3">
+            <Spinner className="w-8 h-8" />
+            <p className="text-sm text-muted">Loading products…</p>
+          </div>
+        ) : products.length === 0 ? (
           <EmptyState title="No products yet" description="Check back soon — new arrivals are on the way." />
         ) : (
           <>

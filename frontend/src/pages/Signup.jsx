@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import api from '../api/axios'
 import { Link, useNavigate } from 'react-router'
 import { Alert } from '../components/ui';
+import signupBg from '../images/signup background.jpg';
 
 export default function Signup() {
   const [form, setForm] = useState({ name: '', email: '', password: '' })
@@ -47,7 +48,7 @@ export default function Signup() {
       <div
         className="absolute inset-0 transition-transform duration-[1500ms] ease-in-out"
         style={{
-          backgroundImage: `url('/src/images/signup background.jpg')`,
+          backgroundImage: `url(${signupBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           transform: bgScale,
@@ -62,7 +63,7 @@ export default function Signup() {
         className="relative z-10 w-full max-w-sm p-8 rounded-2xl border border-white/20 shadow-2xl mx-4 my-12"
         style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
       >
-        <p className="text-center text-brass-300 text-xs font-semibold uppercase tracking-[0.2em] mb-2">Packverse</p>
+        <p className="text-center text-brass-300 text-xs font-semibold uppercase tracking-[0.2em] mb-2">CarryCore</p>
         <h2 className="font-display text-3xl font-bold mb-6 text-center text-white">Create Account</h2>
 
         {msg && (
