@@ -36,80 +36,71 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
 
-      {/* ── HERO BANNER ── */}
-      <section className="relative w-full overflow-hidden">
+      {/* ── HERO ── */}
+      <section className="bg-forest-900 min-h-[88vh] flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
 
-        {/* Ticker */}
-        <div className="bg-ink text-white text-xs font-semibold py-2 overflow-hidden whitespace-nowrap">
-          <div className="animate-marquee inline-block">
-            {Array(6).fill('GRAB THE FREEBIE ❖ FREE TRAVEL POUCH ON ORDERS ABOVE ₹1,999 ❖ NEW ARRIVALS ARE HERE ❖ USE CODE CARRY10 FOR 10% OFF ❖ ').join('')}
-          </div>
-        </div>
+            {/* LEFT — Text */}
+            <div>
+              <span className="inline-flex items-center gap-2 bg-brass-500/20 border border-brass-400/40 text-brass-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-brass-400 animate-pulse" />
+                New Collection 2025
+              </span>
 
-        {/* Banner */}
-        <div className="relative min-h-[88vh] flex items-center">
-          {/* Full-width background image */}
-          <img
-            src={bannerImg}
-            alt="CarryCore Collection"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-ink/55" />
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white">
+                Carry More.<br />
+                <span className="text-brass-300">Worry Less.</span>
+              </h1>
 
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="flex flex-col md:flex-row items-center md:items-stretch justify-between gap-10">
+              <p className="text-forest-200 mt-6 text-lg md:text-xl leading-relaxed max-w-lg">
+                Premium bags crafted for every journey — from daily commutes to mountain escapes.
+              </p>
 
-              {/* LEFT — Badge */}
-              <div className="flex-shrink-0 flex items-start md:items-center">
-                <div className="bg-brass-500 text-white px-5 py-3 rounded-2xl shadow-xl rotate-[-2deg]">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-brass-100">CarryCore</p>
-                  <p className="font-display text-2xl font-bold leading-tight mt-0.5">NEW<br />ARRIVAL</p>
-                  <p className="text-[10px] text-brass-100 mt-1">Collection 2025</p>
-                </div>
-              </div>
-
-              {/* RIGHT — Headline + CTA */}
-              <div className="flex-1 flex flex-col justify-center items-start md:items-end text-left md:text-right">
-                <p className="text-brass-300 text-xs font-bold uppercase tracking-[0.3em] mb-3">Premium Bags &amp; Backpacks</p>
-                <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.0]">
-                  Carry Your<br />
-                  <span className="text-brass-300">Style</span><br />
-                  Everywhere.
-                </h1>
-                <p className="text-white/70 mt-5 text-base md:text-lg max-w-sm md:text-right">
-                  Handcrafted bags for every journey — built to last, designed to impress.
-                </p>
-                <button
-                  onClick={() => navigate('/all-products')}
-                  className="mt-8 inline-flex items-center gap-2 bg-brass-500 hover:bg-brass-400 active:bg-brass-600 text-white font-bold text-sm px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer tracking-wide"
+              <div className="flex flex-wrap gap-3 mt-10">
+                <Button size="lg" onClick={() => navigate("/all-products")}>
+                  Shop Collection
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="!border-white/30 !text-white hover:!bg-white/10 hover:!border-white/60"
+                  onClick={() => navigate("/signup")}
                 >
-                  SHOP COLLECTION
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-
-                {/* Stats row */}
-                <div className="flex gap-8 mt-10 pt-8 border-t border-white/15 w-full md:justify-end">
-                  {[['2M+', 'Customers'], ['80+', 'Styles'], ['4.9★', 'Rating']].map(([v, l]) => (
-                    <div key={l} className="text-center">
-                      <p className="font-display text-2xl font-bold text-white">{v}</p>
-                      <p className="text-[10px] text-white/50 uppercase tracking-wider mt-0.5">{l}</p>
-                    </div>
-                  ))}
-                </div>
+                  Join CarryCore
+                </Button>
               </div>
 
+              <div className="flex flex-wrap gap-8 mt-14 pt-8 border-t border-white/10">
+                {[['2M+', 'Happy Customers'], ['80+', 'Bag Styles'], ['12+', 'Years Crafting'], ['4.9★', 'Avg Rating']].map(([v, l]) => (
+                  <div key={l}>
+                    <p className="font-display text-2xl font-bold text-white">{v}</p>
+                    <p className="text-xs text-forest-300 uppercase tracking-wider mt-0.5">{l}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Bottom floating offer */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
-            <div className="flex items-center gap-2 bg-paper/95 backdrop-blur-sm text-ink text-xs font-semibold px-5 py-2.5 rounded-full shadow-xl border border-border whitespace-nowrap">
-              <span className="text-base">🎁</span>
-              Shop for ₹1,999 to get <span className="text-brass-600 font-bold ml-1">FREE Travel Pouch</span>
+            {/* RIGHT — Image */}
+            <div className="relative hidden md:block">
+              <div className="rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl">
+                <img
+                  src={bannerImg}
+                  alt="CarryCore bags"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* floating tag */}
+              <div className="absolute -bottom-4 -left-4 bg-brass-500 text-white rounded-2xl px-5 py-3 shadow-xl">
+                <p className="font-display text-2xl font-bold">4.9★</p>
+                <p className="text-xs text-brass-100 mt-0.5">Avg Rating</p>
+              </div>
+              <div className="absolute -top-4 -right-4 bg-paper text-ink rounded-2xl px-5 py-3 shadow-xl border border-border">
+                <p className="font-display text-2xl font-bold text-brass-600">80+</p>
+                <p className="text-xs text-muted mt-0.5">Bag Styles</p>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
