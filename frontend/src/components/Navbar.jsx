@@ -183,22 +183,21 @@ export default function Navbar() {
                 {/* ── Tier 3: Category Menu Bar ── */}
                 <div className="hidden md:block bg-paper border-b border-border">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex items-center gap-0">
+                        <div className="flex items-center justify-center gap-0">
                             {NAV_CATEGORIES.map((cat) => (
                                 <Link
                                     key={cat}
                                     to={`/all-products?category=${cat}`}
-                                    className={`relative px-4 py-3 text-xs font-bold tracking-widest transition-colors group whitespace-nowrap
+                                    className={`relative px-5 py-3 text-xs font-bold tracking-widest transition-colors group whitespace-nowrap
                                         ${cat === 'SALE'
                                             ? 'text-rust-500 hover:text-rust-600'
                                             : 'text-ink hover:text-brass-600'
                                         }`}
                                 >
                                     {cat}
-                                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brass-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+                                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brass-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center" />
                                 </Link>
                             ))}
-                            
                         </div>
                     </div>
                 </div>

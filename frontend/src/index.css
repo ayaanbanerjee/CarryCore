@@ -111,3 +111,12 @@ a, button, input, select, textarea {
 
 /* Center-aligned section heading variant */
 .items-center.text-center > * { text-align: center; margin-left: auto; margin-right: auto; }
+
+/* Ticker marquee */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
