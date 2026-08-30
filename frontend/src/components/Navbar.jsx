@@ -118,6 +118,7 @@ export default function Navbar() {
                                     <IconBtn label="Login" onClick={() => navigate('/login')}>
                                         <AccountIcon className="w-5 h-5" />
                                     </IconBtn>
+
                                 ) : (
                                     <div className="relative" ref={dropdownRef}>
                                         <button
@@ -197,14 +198,7 @@ export default function Navbar() {
                                     <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brass-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
                                 </Link>
                             ))}
-                            <div className="ml-auto flex items-center gap-4 py-2">
-                                {!userId && (
-                                    <>
-                                        <Link to="/login" className="text-xs font-semibold text-body hover:text-brass-600 transition-colors">Login</Link>
-                                        <Link to="/signup" className="text-xs font-semibold bg-brass-500 hover:bg-brass-600 text-white px-4 py-1.5 rounded-lg transition-colors">Register</Link>
-                                    </>
-                                )}
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

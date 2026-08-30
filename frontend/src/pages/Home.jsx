@@ -1,5 +1,5 @@
 import api from '../api/axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router';
 import { ProductCard, Button, SectionHeading, EmptyState, Spinner } from '../components/ui';
 import bannerImg from '../images/banner.jpeg';
@@ -37,64 +37,79 @@ export default function Home() {
     <div className="overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[92vh] flex items-center">
-        {/* full-bleed background */}
-        <div className="absolute inset-0">
-          <img src={bannerImg} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-900/95 via-forest-900/75 to-transparent" />
-        </div>
+      <section className="bg-forest-900 min-h-[88vh] flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24">
-          <div className="max-w-2xl">
-            {/* pill badge */}
-            <span className="inline-flex items-center gap-2 bg-brass-500/20 border border-brass-400/40 text-brass-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-brass-400 animate-pulse" />
-              New Collection 2025
-            </span>
+            {/* LEFT — Text */}
+            <div>
+              <span className="inline-flex items-center gap-2 bg-brass-500/20 border border-brass-400/40 text-brass-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-brass-400 animate-pulse" />
+                New Collection 2025
+              </span>
 
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white">
-              Carry More.<br />
-              <span className="text-brass-300">Worry Less.</span>
-            </h1>
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white">
+                Carry More.<br />
+                <span className="text-brass-300">Worry Less.</span>
+              </h1>
 
-            <p className="text-forest-200 mt-6 text-lg md:text-xl leading-relaxed max-w-lg">
-              Premium bags crafted for every journey — from daily commutes to mountain escapes.
-            </p>
+              <p className="text-forest-200 mt-6 text-lg md:text-xl leading-relaxed max-w-lg">
+                Premium bags crafted for every journey — from daily commutes to mountain escapes.
+              </p>
 
-            <div className="flex flex-wrap gap-3 mt-10">
-              <Button size="lg" onClick={() => navigate("/all-products")}>
-                Shop Collection
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="!border-white/30 !text-white hover:!bg-white/10 hover:!border-white/60"
-                onClick={() => navigate("/signup")}
-              >
-                Join CarryCore
-              </Button>
+              <div className="flex flex-wrap gap-3 mt-10">
+                <Button size="lg" onClick={() => navigate("/all-products")}>
+                  Shop Collection
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="!border-white/30 !text-white hover:!bg-white/10 hover:!border-white/60"
+                  onClick={() => navigate("/signup")}
+                >
+                  Join CarryCore
+                </Button>
+              </div>
+
+              <div className="flex flex-wrap gap-8 mt-14 pt-8 border-t border-white/10">
+                {[['2M+', 'Happy Customers'], ['80+', 'Bag Styles'], ['12+', 'Years Crafting'], ['4.9★', 'Avg Rating']].map(([v, l]) => (
+                  <div key={l}>
+                    <p className="font-display text-2xl font-bold text-white">{v}</p>
+                    <p className="text-xs text-forest-300 uppercase tracking-wider mt-0.5">{l}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* stats row */}
-            <div className="flex flex-wrap gap-8 mt-14 pt-8 border-t border-white/10">
-              {[['2M+', 'Happy Customers'], ['80+', 'Bag Styles'], ['12+', 'Years Crafting'], ['4.9★', 'Avg Rating']].map(([v, l]) => (
-                <div key={l}>
-                  <p className="font-display text-2xl font-bold text-white">{v}</p>
-                  <p className="text-xs text-forest-300 uppercase tracking-wider mt-0.5">{l}</p>
-                </div>
-              ))}
+            {/* RIGHT — Image */}
+            <div className="relative hidden md:block">
+              <div className="rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl">
+                <img
+                  src={bannerImg}
+                  alt="CarryCore bags"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* floating tag */}
+              <div className="absolute -bottom-4 -left-4 bg-brass-500 text-white rounded-2xl px-5 py-3 shadow-xl">
+                <p className="font-display text-2xl font-bold">4.9★</p>
+                <p className="text-xs text-brass-100 mt-0.5">Avg Rating</p>
+              </div>
+              <div className="absolute -top-4 -right-4 bg-paper text-ink rounded-2xl px-5 py-3 shadow-xl border border-border">
+                <p className="font-display text-2xl font-bold text-brass-600">80+</p>
+                <p className="text-xs text-muted mt-0.5">Bag Styles</p>
+              </div>
             </div>
+
           </div>
         </div>
-
-        {/* scroll hint */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40 text-xs">
-          <span>Scroll</span>
-          <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
       </section>
+
+      {/* ── BESTSELLERS CAROUSEL ── */}
+      <BestsellersCarousel products={products} loading={loading} onAddToCart={addtocart} navigate={navigate} />
+
+      {/* ── PROMO BAR ── */}
+      <PromoBar />
 
       {/* ── CATEGORY STRIP ── */}
       <section className="bg-paper border-y border-border">
@@ -145,7 +160,7 @@ export default function Home() {
             {products.length > 8 && (
               <div className="text-center mt-10">
                 <Button variant="outline" onClick={() => setShowAll(!showAll)}>
-                  {showAll ? 'Show Less' : `Show All ${products.length} Products`}
+                  {showAll ? 'Show Less' : `Show All`}
                 </Button>
               </div>
             )}
@@ -277,7 +292,293 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── AI ASSISTANT ── */}
+      <AIAssistant />
+
     </div>
+  );
+}
+
+/* ═══════════════════════════════════════════
+   BESTSELLERS CAROUSEL
+═══════════════════════════════════════════ */
+function BestsellersCarousel({ products, loading, onAddToCart, navigate }) {
+  const [start, setStart] = useState(0);
+  const [wishlist, setWishlist] = useState({});
+  const visible = 4;
+  const items = products.slice(0, 12);
+  const canPrev = start > 0;
+  const canNext = start + visible < items.length;
+
+  const BADGES = ['Bestseller', 'New', 'Sale', 'Bestseller', 'New', 'Sale', 'Bestseller', 'New', 'Sale', 'Bestseller', 'New', 'Sale'];
+  const BADGE_STYLES = {
+    Bestseller: 'bg-brass-500 text-white',
+    New: 'bg-forest-500 text-white',
+    Sale: 'bg-rust-500 text-white',
+  };
+
+  const toggleWishlist = (id) => setWishlist(w => ({ ...w, [id]: !w[id] }));
+
+  const getMRP = (price) => Math.round(price * 1.25);
+
+  return (
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brass-500 mb-1">Top Picks</p>
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-ink">Explore Bestsellers</h2>
+        </div>
+        <button
+          onClick={() => navigate('/all-products')}
+          className="text-sm font-semibold text-brass-600 hover:text-brass-700 flex items-center gap-1 cursor-pointer transition-colors"
+        >
+          View All
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      {loading ? (
+        <div className="flex gap-4">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="flex-1 rounded-2xl bg-sand animate-pulse h-72" />
+          ))}
+        </div>
+      ) : (
+        <div className="relative">
+          {/* Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {items.slice(start, start + visible).map((product, idx) => {
+              const badge = BADGES[(start + idx) % BADGES.length];
+              const mrp = getMRP(product.price);
+              return (
+                <div key={product._id} className="bg-paper border border-border rounded-2xl overflow-hidden group hover:shadow-lg hover:border-brass-200 transition-all duration-200 flex flex-col">
+                  {/* Image */}
+                  <div className="relative bg-sand">
+                    <div
+                      className="h-48 flex items-center justify-center p-4 cursor-pointer"
+                      onClick={() => navigate(`/product/${product._id}`)}
+                    >
+                      <img
+                        src={product.images?.[0]}
+                        alt={product.title}
+                        className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                    {/* Badge */}
+                    <span className={`absolute top-2 left-2 text-[10px] font-bold px-2 py-0.5 rounded-full ${BADGE_STYLES[badge]}`}>
+                      {badge}
+                    </span>
+                    {/* Wishlist */}
+                    <button
+                      onClick={() => toggleWishlist(product._id)}
+                      className="absolute top-2 right-2 w-7 h-7 rounded-full bg-paper/90 backdrop-blur-sm flex items-center justify-center shadow-sm hover:scale-110 transition-transform cursor-pointer"
+                    >
+                      <svg className={`w-4 h-4 transition-colors ${wishlist[product._id] ? 'fill-rust-500 stroke-rust-500' : 'fill-none stroke-body'}`} viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-3 flex flex-col flex-1">
+                    <p
+                      className="text-sm font-semibold text-ink leading-snug line-clamp-2 cursor-pointer hover:text-brass-600 transition-colors"
+                      onClick={() => navigate(`/product/${product._id}`)}
+                    >
+                      {product.title}
+                    </p>
+                    <div className="flex items-center gap-2 mt-1.5">
+                      <span className="text-base font-bold text-ink font-data">
+                        ₹{Number(product.price).toLocaleString('en-IN')}
+                      </span>
+                      <span className="text-xs text-muted line-through font-data">
+                        ₹{Number(mrp).toLocaleString('en-IN')}
+                      </span>
+                      <span className="text-[10px] font-bold text-success">
+                        {Math.round(((mrp - product.price) / mrp) * 100)}% off
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => onAddToCart(product._id)}
+                      className="mt-3 w-full flex items-center justify-center gap-1.5 bg-brass-500 hover:bg-brass-600 active:bg-brass-700 text-white text-xs font-semibold py-2 rounded-lg transition-colors cursor-pointer"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                      </svg>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Navigation arrows */}
+          <div className="flex justify-end gap-2 mt-5">
+            <button
+              onClick={() => setStart(s => Math.max(0, s - visible))}
+              disabled={!canPrev}
+              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-body hover:border-brass-400 hover:text-brass-600 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={() => setStart(s => Math.min(items.length - visible, s + visible))}
+              disabled={!canNext}
+              className="w-9 h-9 rounded-full bg-brass-500 hover:bg-brass-600 flex items-center justify-center text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════
+   PROMO BAR
+═══════════════════════════════════════════ */
+function PromoBar() {
+  const offers = [
+    { icon: '🎒', text: 'Buy 2 bags, get 15% off', code: 'BAG2' },
+    { icon: '🚚', text: 'Free shipping above ₹999', code: null },
+    { icon: '↩️', text: '30-day hassle-free returns', code: null },
+    { icon: '🎁', text: 'Gift wrapping available', code: 'GIFTWRAP' },
+  ];
+  return (
+    <div className="bg-gradient-to-r from-forest-900 via-forest-800 to-forest-900 border-y border-forest-700">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-forest-700">
+          {offers.map(({ icon, text, code }) => (
+            <div key={text} className="flex items-center gap-3 px-4 py-4">
+              <span className="text-xl flex-shrink-0">{icon}</span>
+              <div>
+                <p className="text-white text-xs font-semibold leading-snug">{text}</p>
+                {code && (
+                  <p className="text-brass-300 text-[10px] font-bold mt-0.5 tracking-wider">Code: {code}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════
+   AI SHOPPING ASSISTANT
+═══════════════════════════════════════════ */
+function AIAssistant() {
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    { from: 'ai', text: 'Hi! I\'m CarryCore AI 👋 Tell me what you need — a travel bag, laptop bag, or something else — and I\'ll help you find the perfect one!' }
+  ]);
+  const [input, setInput] = useState('');
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    if (open) bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, open]);
+
+  const RESPONSES = [
+    { keys: ['travel', 'trip', 'flight'], reply: 'For travel, I\'d recommend our Travel Bags collection — lightweight, TSA-friendly, and built for long hauls. 🧳' },
+    { keys: ['laptop', 'office', 'work'], reply: 'Our Laptop Bags have padded compartments, USB ports, and a sleek look for the office. 💼' },
+    { keys: ['backpack', 'college', 'school'], reply: 'Our Backpacks are perfect for college — spacious, ergonomic, and stylish. 🎒' },
+    { keys: ['cheap', 'budget', 'affordable'], reply: 'We have great options under ₹999! Check our Sale section for the best deals. 🏷️' },
+    { keys: ['gift'], reply: 'Great choice! We offer gift wrapping — use code GIFTWRAP at checkout. 🎁' },
+  ];
+
+  const handleSend = () => {
+    if (!input.trim()) return;
+    const userMsg = { from: 'user', text: input.trim() };
+    const lower = input.toLowerCase();
+    const match = RESPONSES.find(r => r.keys.some(k => lower.includes(k)));
+    const aiReply = match
+      ? match.reply
+      : 'I\'d love to help! Try browsing our collections or search for what you need. 😊';
+    setMessages(m => [...m, userMsg, { from: 'ai', text: aiReply }]);
+    setInput('');
+  };
+
+  return (
+    <>
+      {/* Floating button */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-brass-500 hover:bg-brass-400 text-white shadow-xl hover:shadow-2xl transition-all hover:scale-105 flex items-center justify-center cursor-pointer"
+        aria-label="CarryCore AI Assistant"
+      >
+        {open ? (
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        ) : (
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+          </svg>
+        )}
+      </button>
+
+      {/* Chat window */}
+      {open && (
+        <div className="fixed bottom-24 right-6 z-50 w-80 bg-paper rounded-2xl shadow-2xl border border-border flex flex-col overflow-hidden">
+          {/* Header */}
+          <div className="bg-forest-900 px-4 py-3 flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-brass-500 flex items-center justify-center text-white text-xs font-bold">AI</div>
+            <div>
+              <p className="text-white text-sm font-semibold">CarryCore AI</p>
+              <p className="text-forest-300 text-[10px]">Shopping Assistant</p>
+            </div>
+            <span className="ml-auto w-2 h-2 rounded-full bg-success animate-pulse" />
+          </div>
+
+          {/* Messages */}
+          <div className="flex-1 overflow-y-auto px-4 py-3 flex flex-col gap-3 max-h-64 scrollbar-thin">
+            {messages.map((msg, i) => (
+              <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`max-w-[80%] px-3 py-2 rounded-xl text-xs leading-relaxed ${
+                  msg.from === 'user'
+                    ? 'bg-brass-500 text-white rounded-br-sm'
+                    : 'bg-sand text-ink rounded-bl-sm'
+                }`}>
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+            <div ref={bottomRef} />
+          </div>
+
+          {/* Input */}
+          <div className="px-3 py-3 border-t border-border flex gap-2">
+            <input
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleSend()}
+              placeholder="Ask me anything..."
+              className="flex-1 text-xs px-3 py-2 rounded-lg border border-border bg-cream focus:outline-none focus:ring-2 focus:ring-brass-400 text-ink placeholder-muted"
+            />
+            <button
+              onClick={handleSend}
+              className="w-8 h-8 rounded-lg bg-brass-500 hover:bg-brass-600 flex items-center justify-center text-white transition-colors cursor-pointer flex-shrink-0"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
