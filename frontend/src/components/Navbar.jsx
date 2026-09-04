@@ -58,7 +58,7 @@ export default function Navbar() {
 
     return (
         <>
-            <header className="fixed top-0 left-0 right-0 z-50 bg-paper shadow-sm">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-paper shadow-sm border-none">
 
                 {/* ── Tier 1: Announcement Bar ── */}
                 <div className="bg-forest-900 text-white text-xs font-medium text-center py-2 px-4 tracking-wide">
@@ -67,7 +67,7 @@ export default function Navbar() {
                 </div>
 
                 {/* ── Tier 2: Main Bar — Logo + Search + Icons ── */}
-                <div className="border-b border-border">
+                <div className="border-b border-border ">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center gap-4 h-16">
 
