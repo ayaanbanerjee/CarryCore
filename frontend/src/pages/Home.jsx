@@ -113,7 +113,7 @@ export default function Home() {
 
       {/* ── CATEGORY STRIP ── */}
       <section className="bg-paper border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
           <div className="flex items-center gap-3 overflow-x-auto scrollbar-thin pb-1">
             {CATEGORIES.map(({ label, icon }) => (
               <button
