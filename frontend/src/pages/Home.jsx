@@ -37,68 +37,56 @@ export default function Home() {
     <div className="overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="bg-forest-900 min-h-[88vh] flex items-center">
+      <section className="home-hero relative overflow-hidden bg-forest-900 flex items-center" id="hero">
+        <div className="home-hero-glow" aria-hidden="true" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="relative grid md:grid-cols-[0.92fr_1.08fr] gap-10 lg:gap-16 items-center">
 
             {/* LEFT — Text */}
-            <div>
+            <div className="hero-copy">
               <span className="inline-flex items-center gap-2 bg-brass-500/20 border border-brass-400/40 text-brass-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-brass-400 animate-pulse" />
-                New Collection 2025
+                Made for the miles ahead
               </span>
 
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white">
+              <h1 className="font-display text-[2.7rem] sm:text-6xl lg:text-[4.6rem] font-semibold leading-[1.04] tracking-[-0.045em] text-white">
                 Carry More.<br />
-                <span className="text-brass-300">Worry Less.</span>
+                <span className="hero-title-accent">Worry Less.</span>
               </h1>
 
-              <p className="text-forest-200 mt-6 text-lg md:text-xl leading-relaxed max-w-lg">
+              <p className="text-forest-200 mt-6 text-base sm:text-lg leading-8 max-w-lg">
                 Premium bags crafted for every journey — from daily commutes to mountain escapes.
               </p>
 
-              <div className="flex flex-wrap gap-3 mt-10">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mt-8">
                 <Button size="lg" onClick={() => navigate("/all-products")}>
-                  Shop Collection
+                  Explore the collection <span aria-hidden="true">↗</span>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="!border-white/30 !text-white hover:!bg-white/10 hover:!border-white/60"
-                  onClick={() => navigate("/signup")}
+                  className="!border-white/20 !text-white hover:!bg-white/10 hover:!border-white/40"
+                  onClick={() => navigate("/all-products?category=BACKPACKS")}
                 >
-                  Join CarryCore
+                  Find your everyday bag
                 </Button>
               </div>
 
-              <div className="flex flex-wrap gap-8 mt-14 pt-8 border-t border-white/10">
-                {[['2M+', 'Happy Customers'], ['80+', 'Bag Styles'], ['12+', 'Years Crafting'], ['4.9★', 'Avg Rating']].map(([v, l]) => (
-                  <div key={l}>
-                    <p className="font-display text-2xl font-bold text-white">{v}</p>
-                    <p className="text-xs text-forest-300 uppercase tracking-wider mt-0.5">{l}</p>
-                  </div>
-                ))}
-              </div>
+              <div className="flex items-center gap-3 mt-9 text-sm text-forest-200"><span className="flex -space-x-2" aria-hidden="true"><span className="hero-dot">C</span><span className="hero-dot">↗</span><span className="hero-dot">✳</span></span><span>For commutes, weekends, and everything between.</span></div>
             </div>
 
             {/* RIGHT — Image */}
-            <div className="relative hidden md:block">
-              <div className="rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl">
+            <div className="hero-visual relative">
+              <div className="hero-image-wrap rounded-[1.75rem] overflow-hidden aspect-[1.12/1] sm:aspect-[1.28/1] md:aspect-[0.94/1]">
                 <img
                   src={bannerImg}
                   alt="CarryCore bags"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hero-image"
                 />
+                <div className="hero-image-shade" />
+                <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 text-white"><p className="text-[10px] uppercase tracking-[0.22em] text-white/75">CarryCore essentials</p><p className="font-display text-2xl sm:text-3xl mt-1">Go a little further.</p></div>
               </div>
-              {/* floating tag */}
-              <div className="absolute -bottom-4 -left-4 bg-brass-500 text-white rounded-2xl px-5 py-3 shadow-xl">
-                <p className="font-display text-2xl font-bold">4.9★</p>
-                <p className="text-xs text-brass-100 mt-0.5">Avg Rating</p>
-              </div>
-              <div className="absolute -top-4 -right-4 bg-paper text-ink rounded-2xl px-5 py-3 shadow-xl border border-border">
-                <p className="font-display text-2xl font-bold text-brass-600">80+</p>
-                <p className="text-xs text-muted mt-0.5">Bag Styles</p>
-              </div>
+              <div className="hero-note hidden sm:flex"><span className="hero-note-mark">✳</span><span><b>Considered design</b><small>Made to move with you</small></span></div>
             </div>
 
           </div>
