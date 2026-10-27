@@ -39,7 +39,7 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="home-hero relative overflow-hidden bg-forest-900 flex items-center" id="hero">
         <div className="home-hero-glow" aria-hidden="true" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 px-0">
           <div className="relative grid md:grid-cols-[0.92fr_1.08fr] gap-10 lg:gap-16 items-center">
 
             {/* LEFT — Text */}
