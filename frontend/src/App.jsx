@@ -31,7 +31,7 @@ function StoreLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 margin-0">
         <Outlet />
       </main>
       <Footer />
