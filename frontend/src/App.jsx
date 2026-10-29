@@ -29,7 +29,7 @@ function getUser() {
 
 function StoreLayout() {
   return (
-    <div className="min-h-screen flex flex-col bg-cream">
+    <div className="min-h-screen flex flex-col bg-cream-100">
       <Navbar />
       <main className="flex-1 margin-0">
         <Outlet />
@@ -42,7 +42,7 @@ function StoreLayout() {
 function AdminLayout() {
   const user = getUser();
   return (
-    <div className="min-h-screen flex flex-col bg-cream">
+    <div className="min-h-screen flex flex-col bg-cream-100">
       <AdminNav adminName={user?.name} />
       <main className="flex-1">
         <Outlet />
